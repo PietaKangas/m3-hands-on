@@ -3,6 +3,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.swing.Spring;
+
 /**
  * A plain-Java controller. 
  *
@@ -11,6 +13,8 @@ import java.util.Map;
  * {@link #createOrder(String, int)} are TODO stubs; their tests
  * fail until the student autocompletes them.
  */
+
+
 public class OrderController {
 
     public record Order(long id, String item, int qty) {}
@@ -30,15 +34,18 @@ public class OrderController {
 
     /** GET /orders/{id} -- return the matching order, or null if
      *  none exists. TODO: complete with Copilot. */
-    public Order getOrderById(long id) {
+    @GetMapping("/orders/{id}")
+    public Order getOrderById(@PathVariable long id) {
         // TODO: look up id in `store` and return it (or null).
         throw new UnsupportedOperationException("TODO: complete via AI");
     }
 
     /** POST /orders -- create a new order, assign it the next id,
      *  store it, and return it. TODO: complete with Copilot. */
-    public Order createOrder(String item, int qty) {
+    @PostMapping("/orders")
+    public Order createOrder(@RequestBody Order order) {
         // TODO: validate item/qty, allocate nextId, put in store, return.
         throw new UnsupportedOperationException("TODO: complete via AI");
     }
 }
+
